@@ -1,0 +1,149 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: #0f0f0f;
+    color: white;
+}
+
+.snap::-webkit-scrollbar {
+    display: none;
+}
+
+.snap {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    max-height: 100vh;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+p {
+    font-family: 'Arimo', sans-serif;
+    font-size: 1em;
+    line-height: 30px;
+}
+
+.container {
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.hero-description{
+    font-size: 2.5rem;
+    font-family: 'Arimo', sans-serif;
+
+    animation-name: incoming;
+    animation-duration: 1s;
+}
+.hero-title {
+    font-size: 6rem;
+    font-family: 'Arimo', sans-serif;
+    background: -webkit-linear-gradient(#00FFF0, #67EBAB);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    animation-name: incoming;
+    animation-duration: 1s;
+    animation-delay: 0.1s;
+}
+
+.hero-subtitle {
+    font-size: 3rem;
+    font-family: 'Arimo', sans-serif;
+
+    animation-name: incoming;
+    animation-duration: 1s;
+    animation-delay: 0.2s;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: #161616;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.card-title {
+    font-size: 2em;
+    font-family: 'Arimo', sans-serif;
+    background: -webkit-linear-gradient(#00FFF0, #67EBAB);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align: center;
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.card-subtitle-1 {
+    font-size: 1em;
+    line-height: 20px;
+}
+.card-subtitle-2 {
+    font-size: 0.8em;
+    line-height: 30px;
+}
+.card-description {
+    font-size: 0.7em;
+    color: #d3d3d3;
+}
+
+.languages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-bar {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100vw;
+    height: 5px;
+    background: rgb(0,206,255);
+    background: linear-gradient(90deg, rgba(0,206,255,0) 0%, rgba(0,255,240,1) 22%, rgba(103,235,171,1) 82%, rgba(2,98,186,0) 100%);
+    background-repeat: no-repeat;
+    animation-name: loading;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@media screen and (max-width: 1200px) {
+    .snap { scroll-snap-type: none; }
+  }
+
+@keyframes loading {
+    0% { background-position: -100vw 0; }
+    100% { background-position: 100vw 0; }
+}
+
+@keyframes incoming {
+    0% {transform: translateX(-300px); opacity: 0 }
+    100% {transform: translateX(0px); opacity: 1 }
+}
+
